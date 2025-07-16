@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'app_Crm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql', #modificar esta linea al agregar la base de datos 
+        'NAME': 'crmuniversitario', # igual a esta se encuentra en el nombre del proyecto y propiedades, sale esta info:
+        'USER': 'postgres',#esta
+        'PASSWORD': '123456',#esta
+        'HOST': 'localhost',#esta
+        'PORT': '5432', #hasta aquí
     }
 }
 
