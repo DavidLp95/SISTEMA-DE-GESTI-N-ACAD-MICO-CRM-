@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os # se agrega para manejar rutas de archivos
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = Path(__file__).resolve().parent.parent # normal mente esta asi
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'app_Crm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ os.path.join(BASE_DIR, 'AppCRM', 'templates') ],  # Asegúrate de que la ruta sea correcta PLANTILLAS HTML
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +69,14 @@ TEMPLATES = [
         },
     },
 ]
+
+STATIC_URL = '/static/' # URL para acceder a los archivos estáticos
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'AppCRM', 'static') ]  # Directorio donde se encuentran los archivos estáticos
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') no es necesario por ahora
+
 
 WSGI_APPLICATION = 'app_Crm.wsgi.application'
 
@@ -120,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

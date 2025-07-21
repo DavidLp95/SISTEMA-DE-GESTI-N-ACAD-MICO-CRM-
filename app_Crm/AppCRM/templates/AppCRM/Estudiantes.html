@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Style_index.css' %}"> <!-- Asegúrate de que la ruta sea correcta -->
+</head>
+<body>
+ <header>
+        <h1>Sistema de Gestión Académica</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'pg_inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'pg_Estudiantes' %}">Estudiantes</a></li>
+          <li><a href="{% url 'pg_Docentes' %}">Docentes</a></li>
+          <li><a href="{% url 'pg_Pagos' %}">Pagos</a></li>
+          <li><a href="{% url 'pg_Clases' %}">Clases</a></li>
+          <li><a href="{% url 'Inscripciones' %}">Inscripciones</a></li>
+          <li><a href="Calificaciones.html">Calificaciones</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <h2>Listado de Estudiantes</h2>
+    <p>Aquí va el contenido del módulo de estudiantes.</p>
+  </main>
+
+  <footer>
+    <p>© 2025 Sistema Académico</p>
+  </footer>
+</body>
+</html>

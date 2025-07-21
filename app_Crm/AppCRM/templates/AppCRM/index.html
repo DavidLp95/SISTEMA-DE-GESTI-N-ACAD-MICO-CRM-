@@ -5,12 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> SISTEMA DE GESTIÓN ACADÉMICO(CRM) </title>
-    <link rel="stylesheet" href="{%  static 'Style.css' %}">
+    <link rel="stylesheet" href="{% static 'Style_index.css' %}"> <!-- Asegúrate de que la ruta sea correcta -->
 </head>
 <body>
-    <h1>saludos desde html</h1>
+     <header>
+    <h1>Sistema de Gestión Académica</h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'pg_inicio' %}">Inicio</a></li>
+        <li><a href="{% url 'pg_Estudiantes' %}">Estudiantes</a></li>
+        <li><a href="{% url 'pg_Docentes' %}">Docentes</a></li>
+        <li><a href="{% url 'pg_Pagos' %}">Pagos</a></li>
+        <li><a href="{% url 'pg_Clases' %}">Clases</a></li>
+        <li><a href="{% url 'Inscripciones' %}">Inscripciones</a></li>
+        <li><a href="Calificaciones.html">Calificaciones</a></li>
+        
+      </ul>
+    </nav>
+  </header>
 
-    <!--  hora del video para no repetir codigo en un html   == '1:11:01' -->
-    
+  <main>
+    <h2>Bienvenido al Sistema Académico</h2>
+    <p>Selecciona un módulo desde el menú superior para comenzar.</p>
+  </main>
+
+  <footer>
+    <p>© 2025 Sistema Académico</p>
+  </footer>
 </body>
 </html>
