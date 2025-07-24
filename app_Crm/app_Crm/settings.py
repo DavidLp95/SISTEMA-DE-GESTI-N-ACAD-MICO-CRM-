@@ -52,6 +52,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
+
 ROOT_URLCONF = 'app_Crm.urls'
 
 TEMPLATES = [
