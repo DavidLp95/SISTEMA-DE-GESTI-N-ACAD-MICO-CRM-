@@ -1,0 +1,24 @@
+# Excluir archivos de texto
+*.txt
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+*~
+
+# Directorios de dependencias (si usas Node.js, Python, etc.)
+node_modules/
+__pycache__/
+.venv/
+venv/
+
+# Archivos de configuración local
+.env
+.env.local
