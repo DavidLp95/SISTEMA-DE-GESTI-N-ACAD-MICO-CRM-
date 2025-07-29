@@ -12,4 +12,5 @@ urlpatterns = [
     path ('inscripciones/', views.Inscripciones, name='Inscripciones'),
 
 
+
 ]

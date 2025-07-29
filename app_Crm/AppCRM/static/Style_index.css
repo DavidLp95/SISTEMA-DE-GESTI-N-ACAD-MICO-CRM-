@@ -50,3 +50,82 @@ footer {
 }
 
 
+/* contenedor formulario   */
+
+.seccion__formulario{
+  display: flex;
+  justify-content: space-between;
+  flex-direction:row(2fr);
+  align-items: center;
+  margin: 0px  2px;
+
+
+}
+
+.seccion__formulario img {
+  max-width: 50%;
+  max-height: auto ;
+  text-align: center;
+  margin: 2rem  ;
+  border-radius: 3rem;
+}
+
+
+.texto_formulario{
+  text-align: center;
+  font-size: 25px;
+  margin: 0.3rem 0rem;
+}
+
+
+
+
+.contenedor__delContenedor{
+  display: flex;
+  width: 35rem;
+  height: 15rem;
+  flex-direction: column;
+  background-color: #005baa;
+  margin: 2rem 1rem;
+  text-align: center;
+  color:white;
+  border: #002944 solid 2px;
+
+
+}
+
+
+
+
+
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* botones  */
+
+
+
+.contenedor_botones{
+  display:  flex;
+  flex-direction: row;
+  width: 2rem;
+  height: 2rem;
+  background-color: #002944;
+  margin: 10px  8rem ;
+  justify-items: center;
+
+}
+
+.enlace{
+  color: white;
+  margin: 0 4rem ;
+}
+
+#contraseña #usuario{
+  align-items: center;
+  text-align: center;
+}

@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'Style_index.css' %}"> <!-- Asegúrate de que la ruta sea correcta -->
+
 </head>
 <body>
-      <header>
+     <header>
         <h1>Sistema de Gestión Académica</h1>
       <nav>
         <ul>
@@ -18,20 +20,38 @@
           <li><a href="{% url 'pg_Pagos' %}">Pagos</a></li>
           <li><a href="{% url 'pg_Clases' %}">Clases</a></li>
           <li><a href="{% url 'Inscripciones' %}">Inscripciones</a></li>
-          <li><a href="Calificaciones.html">Calificaciones</a></li>
-        
+          
+
       </ul>
     </nav>
   </header>
 
-  <main>
-    <h2>Listado de inscripciones</h2>
-    <p>Aquí va el contenido del módulo de inscripciones .</p>
-  </main>
+  <section class="seccion__formulario">
+        <img src="{% static './img/habitos-de-estudio-universitario.webp'%}" alt="">
 
-  <footer>
+        <!-- hacer un formularo del index -->
+        <div class="contenedor__delContenedor">
+
+            <h2>Bienvenido</h2>
+            <div class="contenedor">
+                <label  class="texto_formulario">Usuario</label>
+                <input type="text" id="usuario" placeholder="Ingrese su usuario" title="Usuario">
+                <label  class="texto_formulario" for="">Contaseña</label>
+                <input type="text" id="contraseña" placeholder="Ingrese su contraseña" title="Contraseña">
+                
+                <div class="contenedor_botones">
+                    <button class="botonLogin">Ingresar</button>
+                    <a class="enlace"  href="#">Olvide mi Contrasña</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+     <footer>
     <p>© 2025 Sistema Académico</p>
   </footer>
-    
+
 </body>
 </html>

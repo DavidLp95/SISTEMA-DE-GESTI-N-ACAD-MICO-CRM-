@@ -1,5 +1,6 @@
 from django.shortcuts import render #muestra archivos html
 from django.http import HttpResponse #muestra funciones o respuestas predeterminadas
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -22,4 +23,5 @@ def pg_Pagos(request):
 
 def Inscripciones(request):
     return render(request,'AppCRM/Inscripciones.html')
+
 
