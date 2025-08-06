@@ -1,0 +1,18 @@
+ <div class="header">
+        <h1>🎓 Plataforma Educativa</h1>
+    </div>
+
+    <div class="container">
+        <div class="welcome">Hola, {{ usuario.nombre }}!</div>
+        <p class="role">Rol: {{ usuario.rol | title }}</p>
+        <p>Bienvenido a tu interfaz personal. Aquí podrás ver tus cursos, tareas, calificaciones y más.</p>
+
+        <!-- Aquí irá el contenido real más adelante -->
+        <ul>
+            <li>📚 Mis cursos</li>
+            <li>✍️ Tareas pendientes</li>
+            <li>📊 Calificaciones</li>
+        </ul>
+
+        <a href="{% url 'logout' %}" class="logout">Cerrar sesión</a>
+    </div>

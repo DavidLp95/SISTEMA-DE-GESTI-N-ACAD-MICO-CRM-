@@ -1,36 +1,26 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'Style_index.css' %}"> <!-- Asegúrate de que la ruta sea correcta -->
-</head>
-<body>
-      <header>
-        <h1>Sistema de Gestión Académica</h1>
-      <nav>
-        <ul>
-          <li><a href="{% url 'pg_inicio' %}">Inicio</a></li>
-          <li><a href="{% url 'pg_Estudiantes' %}">Estudiantes</a></li>
-          <li><a href="{% url 'pg_Docentes' %}">Docentes</a></li>
-          <li><a href="{% url 'pg_Pagos' %}">Pagos</a></li>
-          <li><a href="{% url 'pg_Clases' %}">Clases</a></li>
-          <li><a href="{% url 'Inscripciones' %}">Inscripciones</a></li>
-          <li><a href="Calificaciones.html">Calificaciones</a></li>
-        
-      </ul>
-    </nav>
-  </header>
+<!-- esta linea hace la herencia entre plantillas para no repetir codigo -->
+{% extends "AppCRM/index.html" %}  
 
-  <main>
-    <h2>Listado de  DOCENTES</h2>
-    <p>Aquí va el contenido del módulo de DOCENTES.</p>
-  </main>
 
-  <footer>
-    <p>© 2025 Sistema Académico</p>
-  </footer>
-</body>
-</html>
+
+<!-- esta hereda la clase header y todo lo que se repite en el index base -->
+{% block titulo %}
+
+  Inicio - Sistema de Gestión Académica
+
+{% endblock %}
+<!--  hasta aquí -->
+
+
+
+
+
+<!-- en este bloque se modifica lo nuevo de esta sección -->
+{% block contenido %}
+
+  <h1>Seccion de maestros </h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam facilis, quas atque nobis beatae eum repellat error soluta totam. Perferendis laboriosam magnam debitis. Quia impedit et, dolore debitis asperiores corporis voluptatum aut officiis adipisci nulla mollitia ea autem est commodi voluptas ut, perspiciatis eos deserunt quaerat ad provident quis.</p>
+
+
+<!-- contendido de este pagina  -->
+{% endblock %}

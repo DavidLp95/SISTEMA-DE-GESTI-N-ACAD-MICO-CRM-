@@ -1,13 +1,14 @@
-{% load static %}
+{% load static %} <!-- permite que los archivos estaticos se ejecuten -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SISTEMA DE GESTIÓN ACADÉMICO(CRM) </title>
+    <title> {% block titulo %} Sistema de Gestión Académica {% endblock %} </title></title>  <!-- linea para hacer herencia de plantillas -->
     <link rel="stylesheet" href="{% static 'Style_index.css' %}"> <!-- Asegúrate de que la ruta sea correcta -->
 </head>
 <body>
+
      <header>
     <h1>Sistema de Gestión Académica</h1>
     <nav>
@@ -23,6 +24,14 @@
       </ul>
     </nav>
   </header>
+  <div class="conteiner mt4">
+    {% block contenido %}
+
+    <!-- contendio editable  -->
+
+    {% endblock %}
+  </div>
+
 
   <main>
     <h2>Bienvenido al Sistema Académico</h2>

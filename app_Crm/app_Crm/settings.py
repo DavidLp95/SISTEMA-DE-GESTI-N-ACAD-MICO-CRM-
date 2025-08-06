@@ -60,7 +60,7 @@ ROOT_URLCONF = 'app_Crm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR, 'AppCRM', 'templates') ],  # Asegúrate de que la ruta sea correcta PLANTILLAS HTML
+        'DIRS': [ os.path.join(BASE_DIR, 'AppCRM',  'templates') ],  # Asegúrate de que la ruta sea correcta PLANTILLAS HTML /se puede personalizar la ruta 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,8 +78,7 @@ STATIC_URL = '/static/' # URL para acceder a los archivos estáticos
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'AppCRM', 'static') ]  # Directorio donde se encuentran los archivos estáticos
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') no es necesario por ahora
-
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #no es necesario por ahora
 
 WSGI_APPLICATION = 'app_Crm.wsgi.application'
 

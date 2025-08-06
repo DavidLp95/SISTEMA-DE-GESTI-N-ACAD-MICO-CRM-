@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,16 +19,53 @@
           <li><a href="{% url 'pg_Pagos' %}">Pagos</a></li>
           <li><a href="{% url 'pg_Clases' %}">Clases</a></li>
           <li><a href="{% url 'Inscripciones' %}">Inscripciones</a></li>
+          <li><a href="{% url 'perfilEstudiante' %}">Inscripciones</a></li>
           
 
       </ul>
     </nav>
   </header>
 
-  <section class="seccion__formulario">
+
+    <section>
+      <div>
+        <h2>bienvendio</h2>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+             <label>Usuario</label>
+             <input type="text" name="email" placeholder="ingresa su usuario" required>
+          </div>
+          <div class="form-group">
+            <label>contraseña</label>
+            <input type="text" name="password" placeholder="ingresa contraseña" required>
+          </div>
+          <button type="submit">Ingresa</button>
+          <a href="{%url 'recuperar_contraseña'%}" style="color: blue;">olvide mi contraseña</a>
+        </form>
+
+        {% if messages %}
+          <ul>
+            {% for massage in massages%}
+              <li>{{massage}}</li>
+              {% endfor %}
+          </ul>
+      {% endif %}
+      </div>
+
+
+
+    </section>
+
+
+
+
+
+
+  <!-- <section class="seccion__formulario">
         <img src="{% static './img/habitos-de-estudio-universitario.webp'%}" alt="">
 
-        <!-- hacer un formularo del index -->
+        hacer un formularo del index
         <div class="contenedor__delContenedor">
 
             <h2>Bienvenido</h2>
@@ -46,7 +82,7 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
 
 
      <footer>
