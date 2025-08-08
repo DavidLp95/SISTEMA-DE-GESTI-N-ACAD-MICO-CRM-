@@ -9,6 +9,7 @@
 from decouple import config
 from pathlib import Path
 import os # se agrega para manejar rutas de archivos
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -16,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # configuracion para subir a RENDER
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-_7yzxewxgw!*)vmy=3_gi!i6ux2+bizc8y+as19kmu^%+u6l7n'
 DEBUG = config('DEBUG', default= False, cast=bool)
 ALLOWED_HOSTS = [config('SISTEMA DE GESTION ACADEMICO-CRM.com')]
 
@@ -26,12 +27,11 @@ ALLOWED_HOSTS = [config('SISTEMA DE GESTION ACADEMICO-CRM.com')]
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_7yzxewxgw!*)vmy=3_gi!i6ux2+bizc8y+as19kmu^%+u6l7n'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -82,7 +82,7 @@ STATIC_URL = '/static/' # URL para acceder a los archivos estáticos
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'AppCRM', 'static') ]  # Directorio donde se encuentran los archivos estáticos
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #no es necesario por ahora
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #no es necesario por ahora
 
 WSGI_APPLICATION = 'app_Crm.wsgi.application'
 
@@ -90,16 +90,27 @@ WSGI_APPLICATION = 'app_Crm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql', #modificar esta linea al agregar la base de datos 
-        'NAME': 'crmuniversitario', # igual a esta se encuentra en el nombre del proyecto y propiedades, sale esta info:
-        'USER': 'postgres',#esta
-        'PASSWORD': '123456',#esta
-        'HOST': 'localhost',#esta
-        'PORT': '5432', #hasta aquí
+
+# CONFIGUTACION PARA RENDER 
+
+if  'DATABASE_URL' in os.environ:
+    # produccion render
+    DATABASE = {
+         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+
+else:
+    # desarrollo local
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql', #modificar esta linea al agregar la base de datos 
+            'NAME': 'crmuniversitario', # igual a esta se encuentra en el nombre del proyecto y propiedades, sale esta info:
+            'USER': 'postgres',#esta
+            'PASSWORD': '123456',#esta
+            'HOST': 'localhost',#esta
+            'PORT': '5432', #hasta aquí
+        }
+    }
 
 
 # Password validation
