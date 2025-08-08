@@ -1,9 +1,9 @@
-from django.shortcuts import render #muestra archivos html
+from django.shortcuts import render, redirect #muestra archivos html
 from django.http import HttpResponse #muestra funciones o respuestas predeterminadas
 from django.contrib.auth.decorators import login_required
-
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
 from AppCRM.models import Usuario  # Import the Usuario model
+from django.contrib import messages
 # Create your views here.
 
 
@@ -31,14 +31,14 @@ def Inscripciones(request):
         password = request.POST.get('password')
 
         # autenticacion del usuario usando el backend 
-        user = authenticate(request, username= email, password =password)
+        user = authenticate(request, username= email, password =password ) 
 
         if user is not None:
             # verifica que sea el estudiante
             if user.rol == 'estudiante':
                 # inicio de sesion
-                login(request, user, backend = 'usuarios.auth_backend.UsuarioBackend')
-                return redirect('interfaz estudiante ') #dashboard
+                login(request, user)
+                return redirect('perfilEstudiante') #dashboard
             else:
                 messages.error(request, 'Solo ingreso a estudiantes. ')
         else:
@@ -47,7 +47,10 @@ def Inscripciones(request):
     return render(request,'AppCRM/Inscripciones.html')
 
 
-def recuperar_contraseña(reques):
+
+
+
+def recuperar_contraseña(request):
     return render(request, 'AppCRM/recuperar.html')
 
 
@@ -64,14 +67,14 @@ def perfilEstudiante(request):
     estudiante = None
     if hasattr(user, 'estudiante'):
         estudiante = user.estudiante  # Assuming a OneToOneField from Usuario to Estudiante
-    return render(request, 'AppCRM/perfilEstudiante.html', {'usuario': user, 'estudiante': estudiante})
-    # return render(request, 'AppCRM/perfilEstudiante.html', {'usuario':'usuario'})
+    # return render(request, 'AppCRM/perfilEstudiante.html', {'usuario': user, 'estudiante': estudiante})
+    return render(request, 'AppCRM/perfilEstudiante.html', {'usuario':'usuario'})
 
 
-# funcion cierre de sesion del usuario 
-def logout_view(request):
-    logout(request)
-    return redirect('inscripciones')
+# # funcion cierre de sesion del usuario 
+# def logout_view(request):
+#     logout(request)
+#     return redirect('Inscripciones.html')
 
 
 

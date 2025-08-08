@@ -138,3 +138,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# autentificaion de django para el usuario 
+AUTHENTICATION_BACKENDS = [
+    'AppCRM.usuario_auth_Backend.UsuarioBackend',  # Tu backend personalizado
+    'django.contrib.auth.backends.ModelBackend', 
+]
+
+
+# URL de redirección después del login exitoso
+LOGIN_REDIRECT_URL = '/interfaz_estudiante/'
+
+# URL de login
+LOGIN_URL = '/inscripciones/'
+
+
+# # Desactivar actualización automática de last_login
+# from django.contrib.auth.signals import user_logged_in
+# from django.contrib.auth.models import update_last_login
+# user_logged_in.disconnect(update_last_login)

@@ -19,7 +19,7 @@
           <li><a href="{% url 'pg_Pagos' %}">Pagos</a></li>
           <li><a href="{% url 'pg_Clases' %}">Clases</a></li>
           <li><a href="{% url 'Inscripciones' %}">Inscripciones</a></li>
-          <li><a href="{% url 'perfilEstudiante' %}">Inscripciones</a></li>
+    
           
 
       </ul>
@@ -38,16 +38,16 @@
           </div>
           <div class="form-group">
             <label>contraseña</label>
-            <input type="text" name="password" placeholder="ingresa contraseña" required>
+            <input type="password" name="password" placeholder="ingresa contraseña" required>
           </div>
-          <button type="submit">Ingresa</button>
-          <a href="{%url 'recuperar_contraseña'%}" style="color: blue;">olvide mi contraseña</a>
+          <button type="submit" href="{% url 'perfilEstudiante' %}"> ingresar</button>
+          
         </form>
 
         {% if messages %}
           <ul>
-            {% for massage in massages%}
-              <li>{{massage}}</li>
+            {% for message in messages %}
+              <li>{{message}}</li>
               {% endfor %}
           </ul>
       {% endif %}

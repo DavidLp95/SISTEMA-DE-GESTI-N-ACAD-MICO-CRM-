@@ -11,7 +11,7 @@ urlpatterns = [
     path ('pagos/', views.pg_Pagos, name='pg_Pagos'),
     path ('inscripciones/', views.Inscripciones, name='Inscripciones'),
     path ('interfaz_estudiante/', views.perfilEstudiante, name='perfilEstudiante'),
-    path ('logout/', views.logout_view, name='logout_view'),
+    # path ('logout/', views.logout_view, name='logout_view'),
     path ('recuperar_contraseña/', views.recuperar_contraseña, name='recuperar_contraseña'),
 
 

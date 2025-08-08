@@ -25,6 +25,7 @@ class Usuario(models.Model):
     password_hash = models.CharField(max_length=100, verbose_name="Hash de contraseña")
     rol = models.CharField(max_length=100, verbose_name="Rol del usuario")
     fecha_nacimiento = models.DateField(verbose_name="Fecha de nacimiento")
+    last_login = models.DateTimeField(null=True, blank=True, verbose_name="ultimo login ")
 
     class Meta:
         managed = True
@@ -43,7 +44,25 @@ class Usuario(models.Model):
         today = date.today()
         return today.year - self.fecha_nacimiento.year - ((today.month, today.day) < (self.fecha_nacimiento.month, self.fecha_nacimiento.day))
 
-
+    
+    @property
+    def is_authenticated(self):
+        """Siempre True para usuarios válidos"""
+        return True
+    
+    @property
+    def is_anonymous(self):
+        """Siempre False para usuarios válidos"""
+        return False
+    
+    @property
+    def is_active(self):
+        """True si el usuario está activo"""
+        return True
+    
+    def get_username(self):
+        """Devuelve el email como username"""
+        return self.email
 # ========================================
 # MODELOS DE ROLES ESPECÍFICOS
 # ========================================

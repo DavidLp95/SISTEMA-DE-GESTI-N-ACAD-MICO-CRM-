@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Estudiantil</title>
+</head>
+<body>
+    <div class="header">
+        <h1>🎓 Plataforma Educativa</h1>
+    </div>
+
+    <div class="container">
+        <div class="welcome">Hola, { usuario.name }!</div>
+        <p class="role">Rol: {{ usuario.rol | title }}</p>
+        <p>Bienvenido a tu interfaz personal. Aquí podrás ver tus cursos, tareas, calificaciones y más.</p>
+
+        <!-- Aquí irá el contenido real más adelante -->
+        <ul>
+            <li> Mis cursos</li>
+            <li> Tareas pendientes</li>
+            <li> Calificaciones</li>
+        </ul>
+
+        <a href="{% url 'Inscripciones' %}" class="logout">Cerrar sesión</a>
+    </div>
+</body>
+</html>
