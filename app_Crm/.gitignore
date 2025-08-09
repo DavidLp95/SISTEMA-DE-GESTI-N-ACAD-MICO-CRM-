@@ -15,6 +15,7 @@ Thumbs.db
 *.temp
 *~
 
+
 # Directorios de dependencias (si usas Node.js, Python, etc.)
 node_modules/
 __pycache__/
@@ -24,3 +25,8 @@ venv/
 # Archivos de configuración local
 .env
 .env.local
+
+
+*.pyc
+
+*.swp
