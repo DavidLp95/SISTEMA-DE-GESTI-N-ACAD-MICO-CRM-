@@ -2,6 +2,9 @@
 # exit on error
 set -o errexit
 
+# Hacer este archivo ejecutable
+chmod +x build.sh
+
 # Instalar dependencias
 pip install -r requirements.txt
 
