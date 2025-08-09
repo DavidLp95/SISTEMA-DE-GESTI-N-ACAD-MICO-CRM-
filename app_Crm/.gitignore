@@ -1,5 +1,7 @@
 # Excluir archivos de texto
 *.txt
+# Pero permitir requirements.txt
+!requirements.txt
 
 # Archivos del sistema
 .DS_Store
