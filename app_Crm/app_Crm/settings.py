@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # configuracion para subir a RENDER
 SECRET_KEY = 'django-insecure-_7yzxewxgw!*)vmy=3_gi!i6ux2+bizc8y+as19kmu^%+u6l7n'
 DEBUG = config('DEBUG', default= False, cast=bool)
-ALLOWED_HOSTS = [os.environ.get('https://sistema-de-gesti-n-acad-mico-crm.onrender.com')]
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS', 'localhost'), 'd1abb71.onrender.com']
 
 
 
@@ -93,12 +93,11 @@ WSGI_APPLICATION = 'app_Crm.wsgi.application'
 
 # CONFIGUTACION PARA RENDER 
 
-if  'DATABASE_URL' in os.environ:
+if 'DATABASE_URL' in os.environ:
     # produccion render
-    DATABASE = {
-         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-
+     DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
 else:
     # desarrollo local
     DATABASES = {
