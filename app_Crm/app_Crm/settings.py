@@ -18,8 +18,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # configuracion para subir a RENDER
 SECRET_KEY = 'django-insecure-_7yzxewxgw!*)vmy=3_gi!i6ux2+bizc8y+as19kmu^%+u6l7n'
-DEBUG = config('DEBUG', default= False, cast=bool)
-ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS', 'localhost'), 'd1abb71.onrender.com']
+DEBUG = config('DEBUG', default= True, cast=bool)
+
+# Configuración segura de ALLOWED_HOSTS
+ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')]
+ALLOWED_HOSTS.append('d1abb71.onrender.com')
+ALLOWED_HOSTS = list(set(ALLOWED_HOSTS))  # asegura unicidad
 
 
 
@@ -37,13 +41,14 @@ ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS', 'localhost'), 'd1abb71.onrender
 # Application definition
 
 INSTALLED_APPS = [
-    'AppCRM', #agregamos nuesta app 
+    #agregamos nuesta app 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'AppCRM', 
 ]
 
 MIDDLEWARE = [
@@ -96,7 +101,7 @@ WSGI_APPLICATION = 'app_Crm.wsgi.application'
 if 'DATABASE_URL' in os.environ:
     # produccion render
      DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL', ''))
         }
 else:
     # desarrollo local

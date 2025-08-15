@@ -26,6 +26,8 @@ class Usuario(models.Model):
     rol = models.CharField(max_length=100, verbose_name="Rol del usuario")
     fecha_nacimiento = models.DateField(verbose_name="Fecha de nacimiento")
     last_login = models.DateTimeField(null=True, blank=True, verbose_name="ultimo login ")
+    is_staff = models.BooleanField(default=False, verbose_name="Es personal administrativo")
+    is_superuser = models.BooleanField(default=False, verbose_name="Es superusuario")
 
     class Meta:
         managed = True
@@ -63,6 +65,19 @@ class Usuario(models.Model):
     def get_username(self):
         """Devuelve el email como username"""
         return self.email
+    
+    # funciones necesarioas para que el usuario/administrador  pueda iniciar sesión 
+    def has_perm(self, perm, obj=None):
+        """¿Tiene el usuario un permiso específico?"""
+        return self.is_superuser
+    
+    def has_perms(self, perm_list, obj=None):
+        """¿Tiene el usuario todos los permisos especificados?"""
+        return all(self.has_perm(perm, obj) for perm in perm_list)
+    
+    def has_module_perms(self, app_label):
+        """¿Tiene el usuario permisos para ver la app?"""
+        return self.is_superuser or self.is_staff
 # ========================================
 # MODELOS DE ROLES ESPECÍFICOS
 # ========================================

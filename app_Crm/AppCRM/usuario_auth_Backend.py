@@ -15,10 +15,10 @@ class UsuarioBackend(BaseBackend):
             # Buscamos al usuario por email (asumimos que el "username" es el email)
             usuario = Usuario.objects.get(email=username)
 
-            # Verificamos que sea estudiante
-            if usuario.rol != 'estudiante':
-                print("Usuario no es estudiante")
-                return None  # No puede iniciar sesión si no es estudiante
+            # Permitir login a estudiantes para el frontend y administradores para el admin
+            if usuario.rol not in ['estudiante', 'admin']:
+                print(f"Usuario con rol '{usuario.rol}' no autorizado")
+                return None  # Solo estudiantes y administradores pueden iniciar sesión
             
             if usuario.password_hash == password:
                 
