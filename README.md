@@ -21,6 +21,6 @@ ________________________________________________________________________________
 
 👌pasos:
 1. Clona el repositorio
-2. Recre el entorno virtual con ( python -m venv "nombre de tu entorno" )
+2. Recrea el entorno virtual con ( python -m venv "nombre de tu entorno" )
 3. Activa el entorno  virtual  (venv\Scripts\activate o linuux : source venv/bin/activate  )
 4. Instala las dependencias  (pip install -r requirements.txt)
